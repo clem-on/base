@@ -16,7 +16,7 @@ find_and_replace_or_create () {
         echo "ERROR: grep"
         exit 1
         ;;
-    esac   
+    esac
 }
 
 EULA=1 MACHINE=$1 DISTRO=$2 source setup-environment build
@@ -25,6 +25,5 @@ find_and_replace_or_create SSTATE_DIR "/opt/yocto-downloads"
 find_and_replace_or_create UNINATIVE_URL "http://tremosiris.trem.bod:8081/repository/Scorepad/yocto-haumea/"
 find_and_replace_or_create SOURCE_MIRROR_URL "http://tremosiris.trem.bod:8081/repository/Scorepad/yocto-haumea/"
 find_and_replace_or_create BB_FETCH_PREMIRRORONLY "1"
-find_and_replace_or_create BB_NO_NETWORK "1"
 echo "INHERIT += \"own-mirrors\"" >> conf/local.conf
 bitbake $3
